@@ -8,9 +8,16 @@ def index(request):
     context = {
         'Curso': 'Django Web',
         'outro':'O Django é massa',
-        'Produtos': produtos,
+        'produtos': produtos,
     }
     return render(request, 'index.html', context)
 
 def contato(request):
     return render(request, 'contato.html')
+
+def Produto(request, pk):
+    Prod = produto.objects.get(id=pk)
+    context ={
+        'produto': Prod
+    }
+    return render(request, 'produto.html', context)
